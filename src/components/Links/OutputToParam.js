@@ -1,8 +1,23 @@
 import React, { Component } from 'react'
+import * as audioConstants from 'constants/audio'
+import cache from 'lib/cache'
 import * as Nodes from 'components/Nodes'
 import Link from './Link'
 
 class OutputToParam extends Component {
+
+  componentDidMount () {
+    const { from, to } = this.props
+    this.source = cache.nodes[from.id]
+    this.destination = cache.nodes[to.id]
+    this.param = audioConstants[to.node.nodeType].params[to.param]
+    this.source.connect(this.destination[this.param], from.index)
+  }
+
+  componentWillUnmount () {
+    const { from } = this.props
+    this.source.disconnect(this.destination[this.param], from.index)
+  }
   render() {
     const { from, to } = this.props
     const Source = Nodes[from.node.nodeType]

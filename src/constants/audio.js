@@ -10,6 +10,12 @@ export const Destination = {
   params: []
 }
 
+export const Gain = {
+  inputs: 1,
+  outputs: 1,
+  params: ['gain']
+}
+
 export const Param = {
   inputs: 0,
   outputs: 1,
