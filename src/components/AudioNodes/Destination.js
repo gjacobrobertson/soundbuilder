@@ -5,7 +5,7 @@ import AudioNodeHelper from 'lib/AudioNodeHelper'
 import audioContext from 'lib/audioContext'
 import cache from 'lib/cache'
 import Connector from 'components/Connector'
-import Node from 'components/Node'
+import Box from 'components/Box'
 
 class Destination extends Component{
   componentWillMount() {
@@ -20,12 +20,11 @@ class Destination extends Component{
   render() {
     const helper = this.constructor.helper
     const connector = helper.getInputPosition(0)
-    const { x, y } = this.props
     return (
-      <Group x={x} y={y}>
-        <Node width={helper.width} height={helper.height}>
+      <Group>
+        <Box width={helper.width} height={helper.height}>
           <Text text="Output"/>
-        </Node>
+        </Box>
         <Connector x={connector.x} y={connector.y}/>
       </Group>
     )

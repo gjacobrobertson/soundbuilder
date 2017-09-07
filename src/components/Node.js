@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
-import { Group, Rect } from 'react-konva'
+import { Group } from 'react-konva'
+import * as Nodes from './Nodes'
 
 class Node extends Component {
-  componentDidMount() {
-    let children = this.refs.children
-    let { width, height } = children.getClientRect();
-    children.setOffset({ x: width / 2, y: height / 2})
+  constructor(props) {
+    super(props)
+    this._onDragMove = this._onDragMove.bind(this)
+  }
+
+  _onDragMove(e) {
+    this.props.setPosition(e.target.getAbsolutePosition())
   }
 
   render() {
-    const {x = 0, y = 0, width, height, children} = this.props
-    const dimensions = { width, height }
-    const bounds = {x, y, ...dimensions }
-    return (
-      <Group {...bounds} >
-        <Rect {...dimensions }
-          stroke='black'
-          fill='gray'>
-        </Rect>
-        <Group ref='children' x={width / 2} y = {height / 2}>
-          {children}
-        </Group>
+    const { node: { nodeType, x, y } } = this.props
+    const Type = Nodes[nodeType]
+    return(
+      <Group x={x} y={y} draggable={true} onDragMove={this._onDragMove}>
+        <Type {...this.props}/>
       </Group>
     )
   }

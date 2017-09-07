@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Group, Text } from 'react-konva'
-import Node from 'components/Node'
+import Box from 'components/Box'
 import Connector from 'components/Connector'
 
 const width=100
@@ -12,14 +12,14 @@ const helper = {
 
 class Value extends Component {
   render() {
-    const { x, y, value } = this.props
-    const { x: cx, y: cy } = helper.getOutputPosition()
+    const { node: { value  } } = this.props
+    const { x, y} = helper.getOutputPosition()
     return (
-      <Group x={x} y={y}>
-        <Node width={width} height={height}>
+      <Group>
+        <Box width={width} height={height}>
           <Text text={value}/>
-        </Node>
-        <Connector x={cx} y={cy}/>
+        </Box>
+        <Connector x={x} y={y}/>
       </Group>
     )
   }

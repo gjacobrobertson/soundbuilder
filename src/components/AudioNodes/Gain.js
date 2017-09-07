@@ -10,7 +10,7 @@ class Oscillator extends Component {
   
   render () {    
     return (
-      <AudioNode {...this.props} nodeType='Gain'>
+      <AudioNode {...this.props}>
         <Text text='gain'/>
       </AudioNode>
     )

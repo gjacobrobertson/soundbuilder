@@ -9,12 +9,13 @@ class Oscillator extends Component {
   static helper = new AudioNodeHelper(shape)
   
   render () {
+    const { node } = this.props;
     const onInit = (node) => {
       node.start()
     }
 
     const onUpdate = (node) => {
-      node.type = this.props.type || 'sine'
+      node.type = this.props.node.type || 'sine'
     }
 
     const onDestroy = (node) => {
@@ -22,8 +23,8 @@ class Oscillator extends Component {
     }
     
     return (
-      <AudioNode {...this.props} nodeType="Oscillator" onInit={onInit} onDestroy={onDestroy} onUpdate={onUpdate}>
-        <Text text={this.props.type || 'sine'}/>
+      <AudioNode {...this.props} onInit={onInit} onDestroy={onDestroy} onUpdate={onUpdate}>
+        <Text text={node.type || 'sine'}/>
       </AudioNode>
     )
   }

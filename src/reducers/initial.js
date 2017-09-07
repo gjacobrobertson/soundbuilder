@@ -2,21 +2,21 @@ export const nodes = [
   {
     id: 'LF',
     nodeType: 'Value',
-    value: 1,
+    value: 0.1,
     x: 300,
     y: 50
   },
   {
     id: 'LFO',
     nodeType: 'Oscillator',
-    type: 'sine',
+    type: 'sawtooth',
     x: 300,
     y: 150
   },
   {
     id: 'gainValue',
     nodeType: 'Value',
-    value: 100,
+    value: 600,
     x: 500,
     y: 150
   },
@@ -29,6 +29,7 @@ export const nodes = [
   {
     id: 'osc',
     nodeType: 'Oscillator',
+    type: 'square',
     x: 300,
     y: 350,
   },
