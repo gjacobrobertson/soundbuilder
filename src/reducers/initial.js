@@ -2,7 +2,7 @@ export const nodes = [
   {
     id: 'LF',
     nodeType: 'Value',
-    value: 0.1,
+    value: 1,
     x: 300,
     y: 50
   },

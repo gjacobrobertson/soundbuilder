@@ -5,7 +5,7 @@ import toJS from './toJS'
 import Node from './Node'
 
 const Nodes = ({nodes}) => (
-  <Layer zIndex={2}>
+  <Layer zIndex={1}>
     { nodes.map(node => (
       <Node key={node} id={node} />
     ))}

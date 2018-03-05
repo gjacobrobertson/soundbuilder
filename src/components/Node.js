@@ -9,7 +9,8 @@ class Node extends Component {
   }
 
   _onDragMove(e) {
-    this.props.setPosition(e.target.getAbsolutePosition())
+    console.log(e)
+    this.props.updateNode(e.target.getPosition())
   }
 
   render() {

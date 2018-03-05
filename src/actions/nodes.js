@@ -1,3 +1,3 @@
 import { createAction } from 'redux-actions'
 
-export const setPosition = createAction('NODE_SET_POS', (id, x, y) => ({id, x, y}))
+export const updateNode = createAction('NODE_UPDATE', (id, props) => ({id, props}))

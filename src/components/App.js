@@ -1,17 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Stage } from 'react-konva'
 import Nodes from 'containers/Nodes'
 import Links from 'containers/Links'
 
-class App extends Component {
-  render() {
-    return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Nodes />
-        <Links />
-      </Stage>
-    );
-  }
-}
+const App = () => 
+  <Stage width={window.innerWidth} height={window.innerHeight} draggable={true}>
+    <Nodes />
+    <Links />
+  </Stage>
 
 export default App

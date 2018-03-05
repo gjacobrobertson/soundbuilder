@@ -34,7 +34,7 @@ const createLink = link => {
 }
 
 const Links = ({links}) => (
-  <Layer>
+  <Layer zIndex={0}>
     { links.map(createLink) }
   </Layer>
 )
